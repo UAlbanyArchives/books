@@ -2,6 +2,8 @@
 class CatalogController < ApplicationController
 
   include Blacklight::Catalog
+  include BlacklightRangeLimit::ControllerOverride
+
 
   configure_blacklight do |config|
     ## Class for sending and receiving requests from a search index
@@ -29,7 +31,7 @@ class CatalogController < ApplicationController
     #config.per_page = [10,20,50,100]
 
     # solr field configuration for search results/index views
-    config.index.title_field = 'title_tsim'
+    config.index.title_field = 'title_tesim'
     #config.index.display_type_field = 'format'
     #config.index.thumbnail_field = 'thumbnail_path_ss'
 
@@ -48,7 +50,7 @@ class CatalogController < ApplicationController
     config.add_nav_action(:search_history, partial: 'blacklight/nav/search_history')
 
     # solr field configuration for document/show views
-    #config.show.title_field = 'title_tsim'
+    #config.show.title_field = 'title_tesim'
     #config.show.display_type_field = 'format'
     #config.show.thumbnail_field = 'thumbnail_path_ss'
 
@@ -78,7 +80,14 @@ class CatalogController < ApplicationController
 
     config.add_facet_field 'format', label: 'Format'
     config.add_facet_field 'pub_date_ssim', label: 'Publication Year', single: true
-    config.add_facet_field 'subject_ssim', label: 'Topic', limit: 20, index_range: 'A'..'Z'
+    config.add_facet_field 'subject_ssim', label: 'Subject', limit: 15, index_range: 'A'..'Z'
+    config.add_facet_field 'date', label: 'Date', range: true
+    config.add_facet_field 'author_tesim', label: 'Author', limit: 10
+    config.add_facet_field 'illustrator_tesim', label: 'Illustrator', limit: 10
+    config.add_facet_field 'editor_tesim', label: 'Editor', limit: 10
+    config.add_facet_field 'translator_tesim', label: 'Translator', limit: 10
+    config.add_facet_field 'contributor_tesim', label: 'Contributor', limit: 10
+
     config.add_facet_field 'language_ssim', label: 'Language', limit: true
     config.add_facet_field 'lc_1letter_ssim', label: 'Call Number'
     config.add_facet_field 'subject_geo_ssim', label: 'Region'
@@ -92,7 +101,6 @@ class CatalogController < ApplicationController
        :years_25 => { label: 'within 25 Years', fq: "pub_date_ssim:[#{Time.zone.now.year - 25 } TO *]" }
     }
 
-
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
     # handler defaults, or have no facets.
@@ -100,9 +108,15 @@ class CatalogController < ApplicationController
 
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display
-    config.add_index_field 'title_tsim', label: 'Title'
+    config.add_index_field 'title_tesim', label: 'Title'
     config.add_index_field 'title_vern_ssim', label: 'Title'
-    config.add_index_field 'author_tsim', label: 'Author'
+    config.add_index_field 'display_date_tesim', label: 'Date'
+    config.add_index_field 'author_tesim', label: 'Author'
+    config.add_index_field 'editor_tesim', label: 'Editor'
+    config.add_index_field 'illustrator_tesim', label: 'Illustrator'
+    config.add_index_field 'translator_tesim', label: 'Translator'
+    config.add_index_field 'contributor_tesim', label: 'Contributor'
+
     config.add_index_field 'author_vern_ssim', label: 'Author'
     config.add_index_field 'format', label: 'Format'
     config.add_index_field 'language_ssim', label: 'Language'
@@ -112,11 +126,14 @@ class CatalogController < ApplicationController
 
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display
-    config.add_show_field 'title_tsim', label: 'Title'
+    config.add_show_field 'display_tesim', label: 'Full Record'
+
+    config.add_show_field 'title_tesim', label: 'Title'
     config.add_show_field 'title_vern_ssim', label: 'Title'
     config.add_show_field 'subtitle_tsim', label: 'Subtitle'
     config.add_show_field 'subtitle_vern_ssim', label: 'Subtitle'
-    config.add_show_field 'author_tsim', label: 'Author'
+    config.add_show_field 'display_date_tesim', label: 'Date'
+    config.add_show_field 'author_tesim', label: 'Author'
     config.add_show_field 'author_vern_ssim', label: 'Author'
     config.add_show_field 'format', label: 'Format'
     config.add_show_field 'url_fulltext_ssim', label: 'URL'
@@ -126,6 +143,15 @@ class CatalogController < ApplicationController
     config.add_show_field 'published_vern_ssim', label: 'Published'
     config.add_show_field 'lc_callnum_ssim', label: 'Call number'
     config.add_show_field 'isbn_ssim', label: 'ISBN'
+
+    config.add_show_field 'illustrator_tesim', label: 'Illustrator'
+    config.add_show_field 'editor_tesim', label: 'Editor'
+    config.add_show_field 'translator_tesim', label: 'Translator'
+    config.add_show_field 'contributor_tesim', label: 'Contributor'
+    config.add_show_field 'notes_tesim', label: 'Notes'
+
+    config.add_show_field 'subject_ssim', label: 'Subjects'
+    #config.add_show_field solr_name("subject_ssim", :stored_searchable)
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
@@ -186,10 +212,12 @@ class CatalogController < ApplicationController
     # whether the sort is ascending or descending (it must be asc or desc
     # except in the relevancy case). Add the sort: option to configure a
     # custom Blacklight url parameter value separate from the Solr sort fields.
+    config.add_sort_field 'date asc', label: 'date'
+    config.add_sort_field 'date desc', label: 'date reversed'
     config.add_sort_field 'relevance', sort: 'score desc, pub_date_si desc, title_si asc', label: 'relevance'
-    config.add_sort_field 'year-desc', sort: 'pub_date_si desc, title_si asc', label: 'year'
-    config.add_sort_field 'author', sort: 'author_si asc, title_si asc', label: 'author'
-    config.add_sort_field 'title_si asc, pub_date_si desc', label: 'title'
+    #config.add_sort_field 'year-desc', sort: 'date desc, title_si asc', label: 'date'
+    config.add_sort_field 'author', sort: 'author_tesim asc, title_tesim asc', label: 'author'
+    #config.add_sort_field 'title_tesim asc, date desc' label: 'title'
 
     # If there are more than this many search results, no spelling ("did you
     # mean") suggestion is offered.
