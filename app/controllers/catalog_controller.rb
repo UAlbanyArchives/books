@@ -82,11 +82,11 @@ class CatalogController < ApplicationController
     config.add_facet_field 'pub_date_ssim', label: 'Publication Year', single: true
     config.add_facet_field 'subject_ssim', label: 'Subject', limit: 15, index_range: 'A'..'Z'
     config.add_facet_field 'date', label: 'Date', range: true
-    config.add_facet_field 'author_tesim', label: 'Author', limit: 10
-    config.add_facet_field 'illustrator_tesim', label: 'Illustrator', limit: 10
-    config.add_facet_field 'editor_tesim', label: 'Editor', limit: 10
-    config.add_facet_field 'translator_tesim', label: 'Translator', limit: 10
-    config.add_facet_field 'contributor_tesim', label: 'Contributor', limit: 10
+    config.add_facet_field 'author_ssim', label: 'Author', limit: 10
+    config.add_facet_field 'illustrator_ssim', label: 'Illustrator', limit: 10
+    config.add_facet_field 'editor_ssim', label: 'Editor', limit: 10
+    config.add_facet_field 'translator_ssim', label: 'Translator', limit: 10
+    config.add_facet_field 'contributor_ssim', label: 'Contributor', limit: 10
 
     config.add_facet_field 'language_ssim', label: 'Language', limit: true
     config.add_facet_field 'lc_1letter_ssim', label: 'Call Number'
@@ -111,11 +111,11 @@ class CatalogController < ApplicationController
     config.add_index_field 'title_tesim', label: 'Title'
     config.add_index_field 'title_vern_ssim', label: 'Title'
     config.add_index_field 'display_date_tesim', label: 'Date'
-    config.add_index_field 'author_tesim', label: 'Author'
-    config.add_index_field 'editor_tesim', label: 'Editor'
-    config.add_index_field 'illustrator_tesim', label: 'Illustrator'
-    config.add_index_field 'translator_tesim', label: 'Translator'
-    config.add_index_field 'contributor_tesim', label: 'Contributor'
+    config.add_index_field 'author_ssim', label: 'Author'
+    config.add_index_field 'editor_ssim', label: 'Editor'
+    config.add_index_field 'illustrator_ssim', label: 'Illustrator'
+    config.add_index_field 'translator_ssim', label: 'Translator'
+    config.add_index_field 'contributor_ssim', label: 'Contributor'
 
     config.add_index_field 'author_vern_ssim', label: 'Author'
     config.add_index_field 'format', label: 'Format'
@@ -133,7 +133,7 @@ class CatalogController < ApplicationController
     config.add_show_field 'subtitle_tsim', label: 'Subtitle'
     config.add_show_field 'subtitle_vern_ssim', label: 'Subtitle'
     config.add_show_field 'display_date_tesim', label: 'Date'
-    config.add_show_field 'author_tesim', label: 'Author'
+    config.add_show_field 'author_ssim', label: 'Author'
     config.add_show_field 'author_vern_ssim', label: 'Author'
     config.add_show_field 'format', label: 'Format'
     config.add_show_field 'url_fulltext_ssim', label: 'URL'
@@ -144,10 +144,10 @@ class CatalogController < ApplicationController
     config.add_show_field 'lc_callnum_ssim', label: 'Call number'
     config.add_show_field 'isbn_ssim', label: 'ISBN'
 
-    config.add_show_field 'illustrator_tesim', label: 'Illustrator'
-    config.add_show_field 'editor_tesim', label: 'Editor'
-    config.add_show_field 'translator_tesim', label: 'Translator'
-    config.add_show_field 'contributor_tesim', label: 'Contributor'
+    config.add_show_field 'illustrator_ssim', label: 'Illustrator'
+    config.add_show_field 'editor_ssim', label: 'Editor'
+    config.add_show_field 'translator_ssim', label: 'Translator'
+    config.add_show_field 'contributor_ssim', label: 'Contributor'
     config.add_show_field 'notes_tesim', label: 'Notes'
 
     config.add_show_field 'subject_ssim', label: 'Subjects'
