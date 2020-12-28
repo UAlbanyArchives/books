@@ -41,6 +41,9 @@ gem 'blacklight', '>= 7.0'
 gem 'blacklight_range_limit'
 gem "font-awesome-rails"
 
+# shared header, footer, etc.
+gem 'grenander', git: 'https://github.com/UAlbanyArchives/grenander'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
