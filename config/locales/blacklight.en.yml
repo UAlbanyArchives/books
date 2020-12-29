@@ -1,3 +1,6 @@
 en:
   blacklight:
-    application_name: 'Blacklight'
+    application_name: 'Mathes Childrens Literature - M.E. Grenander Special Collections &amp; Archives'
+    search:
+      form:
+        submit: ''

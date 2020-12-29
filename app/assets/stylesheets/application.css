@@ -16,8 +16,32 @@
  *
  * Used by blacklight_range_limit
  *= require  'blacklight_range_limit'
- *= require  'grenander/headerNavbar'
- *= require  'grenander/browseNav'
- *= require  'grenander/searchSubnav'
+ *= require  'grenander/main'
+ *= require  'grenander/navbar'
+ *= require  'grenander/search-source'
+ *= require  'grenander/footer'
  *
 */
+
+
+.access-card {
+	margin-top: 2rem;
+}
+
+@media (min-width: 992px) {
+	.access-card {
+		margin-top: 4.5rem;
+	}
+}
+
+
+#document dd a {
+	display: table;
+}
+
+#document dd.blacklight-subject_ssim {
+  font-size:0;
+}
+#document dd.blacklight-subject_ssim a {
+  font-size:initial;
+}

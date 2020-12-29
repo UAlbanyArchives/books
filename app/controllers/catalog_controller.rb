@@ -41,10 +41,10 @@ class CatalogController < ApplicationController
     config.add_results_collection_tool(:per_page_widget)
     config.add_results_collection_tool(:view_type_group)
 
-    config.add_show_tools_partial(:bookmark, partial: 'bookmark_control', if: :render_bookmarks_control?)
-    config.add_show_tools_partial(:email, callback: :email_action, validator: :validate_email_params)
-    config.add_show_tools_partial(:sms, if: :render_sms_action?, callback: :sms_action, validator: :validate_sms_params)
-    config.add_show_tools_partial(:citation)
+    #config.add_show_tools_partial(:bookmark, partial: 'bookmark_control', if: :render_bookmarks_control?)
+    #config.add_show_tools_partial(:email, callback: :email_action, validator: :validate_email_params)
+    #config.add_show_tools_partial(:sms, if: :render_sms_action?, callback: :sms_action, validator: :validate_sms_params)
+    #config.add_show_tools_partial(:citation)
 
     config.add_nav_action(:bookmark, partial: 'blacklight/nav/bookmark', if: :render_bookmarks_control?)
     config.add_nav_action(:search_history, partial: 'blacklight/nav/search_history')
@@ -111,11 +111,11 @@ class CatalogController < ApplicationController
     config.add_index_field 'title_tesim', label: 'Title'
     config.add_index_field 'title_vern_ssim', label: 'Title'
     config.add_index_field 'display_date_tesim', label: 'Date'
-    config.add_index_field 'author_ssim', label: 'Author'
-    config.add_index_field 'editor_ssim', label: 'Editor'
-    config.add_index_field 'illustrator_ssim', label: 'Illustrator'
-    config.add_index_field 'translator_ssim', label: 'Translator'
-    config.add_index_field 'contributor_ssim', label: 'Contributor'
+    config.add_index_field 'author_ssim', label: 'Author', link_to_facet: true
+    config.add_index_field 'editor_ssim', label: 'Editor', link_to_facet: true
+    config.add_index_field 'illustrator_ssim', label: 'Illustrator', link_to_facet: true
+    config.add_index_field 'translator_ssim', label: 'Translator', link_to_facet: true
+    config.add_index_field 'contributor_ssim', label: 'Contributor', link_to_facet: true
 
     config.add_index_field 'author_vern_ssim', label: 'Author'
     config.add_index_field 'format', label: 'Format'
@@ -133,7 +133,7 @@ class CatalogController < ApplicationController
     config.add_show_field 'subtitle_tsim', label: 'Subtitle'
     config.add_show_field 'subtitle_vern_ssim', label: 'Subtitle'
     config.add_show_field 'display_date_tesim', label: 'Date'
-    config.add_show_field 'author_ssim', label: 'Author'
+    config.add_show_field 'author_ssim', label: 'Author', link_to_facet: true
     config.add_show_field 'author_vern_ssim', label: 'Author'
     config.add_show_field 'format', label: 'Format'
     config.add_show_field 'url_fulltext_ssim', label: 'URL'
@@ -150,7 +150,7 @@ class CatalogController < ApplicationController
     config.add_show_field 'contributor_ssim', label: 'Contributor'
     config.add_show_field 'notes_tesim', label: 'Notes'
 
-    config.add_show_field 'subject_ssim', label: 'Subjects'
+    config.add_show_field 'subject_ssim', label: 'Subjects', link_to_facet: true
     #config.add_show_field solr_name("subject_ssim", :stored_searchable)
 
     # "fielded" search configuration. Used by pulldown among other places.
@@ -178,34 +178,34 @@ class CatalogController < ApplicationController
     # case for a BL "search field", which is really a dismax aggregate
     # of Solr search fields.
 
-    config.add_search_field('title') do |field|
+    #config.add_search_field('title') do |field|
       # solr_parameters hash are sent to Solr as ordinary url query params.
-      field.solr_parameters = {
-        'spellcheck.dictionary': 'title',
-        qf: '${title_qf}',
-        pf: '${title_pf}'
-      }
-    end
+    #  field.solr_parameters = {
+    #    'spellcheck.dictionary': 'title',
+    #    qf: '${title_qf}',
+    #    pf: '${title_pf}'
+    #  }
+    #end
 
-    config.add_search_field('author') do |field|
-      field.solr_parameters = {
-        'spellcheck.dictionary': 'author',
-        qf: '${author_qf}',
-        pf: '${author_pf}'
-      }
-    end
+    #config.add_search_field('author') do |field|
+    #  field.solr_parameters = {
+    #    'spellcheck.dictionary': 'author',
+    #    qf: '${author_qf}',
+    #    pf: '${author_pf}'
+    #  }
+    #end
 
     # Specifying a :qt only to show it's possible, and so our internal automated
     # tests can test it. In this case it's the same as
     # config[:default_solr_parameters][:qt], so isn't actually neccesary.
-    config.add_search_field('subject') do |field|
-      field.qt = 'search'
-      field.solr_parameters = {
-        'spellcheck.dictionary': 'subject',
-        qf: '${subject_qf}',
-        pf: '${subject_pf}'
-      }
-    end
+    #config.add_search_field('subject') do |field|
+    #  field.qt = 'search'
+    #  field.solr_parameters = {
+    #    'spellcheck.dictionary': 'subject',
+    #    qf: '${subject_qf}',
+    #    pf: '${subject_pf}'
+    #  }
+    #end
 
     # "sort results by" select (pulldown)
     # label in pulldown is followed by the name of the Solr field to sort by and
