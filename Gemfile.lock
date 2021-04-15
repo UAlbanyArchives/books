@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/UAlbanyArchives/grenander
-  revision: 5205e7c716c249a0256c72973866f5a6f2edc03e
+  revision: 7e86b7e138d8445b9930988aabb27a1720407af7
   branch: new_nav
   specs:
-    grenander (1.2.0)
+    grenander (1.3.1)
       bootstrap (>= 4.3.1)
       d3-rails
       font-awesome-rails
@@ -62,7 +62,7 @@ GEM
     archive-zip (0.12.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
-    autoprefixer-rails (10.2.0.0)
+    autoprefixer-rails (10.2.4.0)
       execjs
     bindex (0.8.1)
     blacklight (7.13.2)
@@ -76,7 +76,7 @@ GEM
       blacklight (~> 7.0)
     bootsnap (1.5.1)
       msgpack (~> 1.0)
-    bootstrap (4.5.3)
+    bootstrap (4.6.0)
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 1.14.3, < 2)
       sassc-rails (>= 2.0.0)
@@ -103,7 +103,7 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.8)
     crass (1.0.6)
-    d3-rails (5.9.2)
+    d3-rails (6.6.2)
       railties (>= 3.1)
     deprecation (1.0.0)
       activesupport
@@ -112,10 +112,10 @@ GEM
     faraday (1.2.0)
       multipart-post (>= 1.2, < 3)
       ruby2_keywords
-    fastimage (2.2.1)
-    ffi (1.14.2)
-    font-awesome-rails (4.7.0.6)
-      railties (>= 3.2, < 6.2)
+    fastimage (2.2.3)
+    ffi (1.15.0)
+    font-awesome-rails (4.7.0.7)
+      railties (>= 3.2, < 7)
     font-awesome-sass (4.6.2)
       sass (>= 3.2)
     globalid (0.4.2)
