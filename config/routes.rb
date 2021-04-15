@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-scope 'mathes' do
+scope 'books' do
 
   concern :range_searchable, BlacklightRangeLimit::Routes::RangeSearchable.new
   mount Blacklight::Engine => '/'
