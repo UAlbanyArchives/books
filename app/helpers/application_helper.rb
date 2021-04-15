@@ -1,5 +1,5 @@
 module ApplicationHelper
 	def source_name
-      'Mathes Childrens Literature'
+      'Rare Books'
     end
 end

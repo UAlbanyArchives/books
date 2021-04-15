@@ -78,17 +78,30 @@ class CatalogController < ApplicationController
     #  (useful when user clicks "more" on a large facet and wants to navigate alphabetically across a large set of results)
     # :index_range can be an array or range of prefixes that will be used to create the navigation (note: It is case sensitive when searching values)
 
-    config.add_facet_field 'format', label: 'Format'
-    config.add_facet_field 'pub_date_ssim', label: 'Publication Year', single: true
-    config.add_facet_field 'subject_ssim', label: 'Subject', limit: 15, index_range: 'A'..'Z'
+    
+    config.add_facet_field 'collecting_area_ssim', label: 'Collecting Area'
+    config.add_facet_field 'collection_ssim', label: 'Collection'
     config.add_facet_field 'date', label: 'Date', range: true
+    config.add_facet_field 'language_facet_ssim', label: 'Language', limit: 10
+    config.add_facet_field 'subject_ssim', label: 'Subject', limit: 10, index_range: 'A'..'Z'
+    config.add_facet_field 'genre_form_ssim', label: 'Genre/Form', limit: 5, index_range: 'A'..'Z'
+    config.add_facet_field 'persname_ssim', label: 'Name', limit: 5, index_range: 'A'..'Z'
+    config.add_facet_field 'corpname_ssim', label: 'Corporate Name', limit: 10, index_range: 'A'..'Z'
+    config.add_facet_field 'topic_term_ssim', label: 'Topic', limit: 5, index_range: 'A'..'Z'
+    config.add_facet_field 'chronological_term_ssim', label: 'Chronological Term', limit: 5, index_range: 'A'..'Z'
+    config.add_facet_field 'geographic_term_ssim', label: 'Geographic Term', limit: 5, index_range: 'A'..'Z'
+    config.add_facet_field 'title_term_ssim', label: 'Title', limit: 5, index_range: 'A'..'Z'
+    config.add_facet_field 'oversized_ssim', label: 'Oversized'
+    config.add_facet_field 'format_ssim', label: 'Format'
+    config.add_facet_field 'location_ssim', label: 'Location'
+    config.add_facet_field 'pub_date_ssim', label: 'Publication Year', single: true
     config.add_facet_field 'author_ssim', label: 'Author', limit: 10
     config.add_facet_field 'illustrator_ssim', label: 'Illustrator', limit: 10
     config.add_facet_field 'editor_ssim', label: 'Editor', limit: 10
     config.add_facet_field 'translator_ssim', label: 'Translator', limit: 10
     config.add_facet_field 'contributor_ssim', label: 'Contributor', limit: 10
 
-    config.add_facet_field 'language_ssim', label: 'Language', limit: true
+    #config.add_facet_field 'language_ssim', label: 'Language', limit: true
     config.add_facet_field 'lc_1letter_ssim', label: 'Call Number'
     config.add_facet_field 'subject_geo_ssim', label: 'Region'
     config.add_facet_field 'subject_era_ssim', label: 'Era'
@@ -108,7 +121,7 @@ class CatalogController < ApplicationController
 
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display
-    config.add_index_field 'title_tesim', label: 'Title'
+    #config.add_index_field 'title_tesim', label: 'Title'
     config.add_index_field 'title_vern_ssim', label: 'Title'
     config.add_index_field 'display_date_tesim', label: 'Date'
     config.add_index_field 'author_ssim', label: 'Author', link_to_facet: true
@@ -116,41 +129,67 @@ class CatalogController < ApplicationController
     config.add_index_field 'illustrator_ssim', label: 'Illustrator', link_to_facet: true
     config.add_index_field 'translator_ssim', label: 'Translator', link_to_facet: true
     config.add_index_field 'contributor_ssim', label: 'Contributor', link_to_facet: true
-
+    config.add_index_field 'collecting_area_ssim', label: 'Collecting Area', link_to_facet: true
+    config.add_index_field 'collection_ssim', label: 'Collection', link_to_facet: true
     config.add_index_field 'author_vern_ssim', label: 'Author'
-    config.add_index_field 'format', label: 'Format'
-    config.add_index_field 'language_ssim', label: 'Language'
+    config.add_index_field 'format', label: 'Format', link_to_facet: true
+    config.add_index_field 'language_tesim', label: 'Language'
+    
     config.add_index_field 'published_ssim', label: 'Published'
     config.add_index_field 'published_vern_ssim', label: 'Published'
-    config.add_index_field 'lc_callnum_ssim', label: 'Call number'
+    config.add_index_field 'call_number_ssim', label: 'Call number', link_to_facet: true
 
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display
     config.add_show_field 'display_tesim', label: 'Full Record'
 
-    config.add_show_field 'title_tesim', label: 'Title'
+    #config.add_show_field 'title_tesim', label: 'Title'
     config.add_show_field 'title_vern_ssim', label: 'Title'
     config.add_show_field 'subtitle_tsim', label: 'Subtitle'
     config.add_show_field 'subtitle_vern_ssim', label: 'Subtitle'
     config.add_show_field 'display_date_tesim', label: 'Date'
     config.add_show_field 'author_ssim', label: 'Author', link_to_facet: true
     config.add_show_field 'author_vern_ssim', label: 'Author'
-    config.add_show_field 'format', label: 'Format'
-    config.add_show_field 'url_fulltext_ssim', label: 'URL'
-    config.add_show_field 'url_suppl_ssim', label: 'More Information'
-    config.add_show_field 'language_ssim', label: 'Language'
-    config.add_show_field 'published_ssim', label: 'Published'
-    config.add_show_field 'published_vern_ssim', label: 'Published'
-    config.add_show_field 'lc_callnum_ssim', label: 'Call number'
-    config.add_show_field 'isbn_ssim', label: 'ISBN'
-
     config.add_show_field 'illustrator_ssim', label: 'Illustrator'
     config.add_show_field 'editor_ssim', label: 'Editor'
     config.add_show_field 'translator_ssim', label: 'Translator'
     config.add_show_field 'contributor_ssim', label: 'Contributor'
+
+    config.add_show_field 'collecting_area_ssim', label: 'Collecting Area', link_to_facet: true
+    config.add_show_field 'collection_ssim', label: 'Collection', link_to_facet: true
+    config.add_show_field 'call_number_ssim', label: 'Call Number', link_to_facet: true
+    config.add_show_field 'url_fulltext_ssim', label: 'URL'
+    config.add_show_field 'url_suppl_ssim', label: 'More Information'
+    config.add_show_field 'language_tesim', label: 'Language'
+    config.add_show_field 'format_ssim', label: 'Format', link_to_facet: true
+    config.add_show_field 'oversized_ssim', label: 'Oversized', link_to_facet: true
+    config.add_show_field 'location_ssim', label: 'Location', link_to_facet: true
+
+    config.add_show_field 'publisher_ssim', label: 'Publisher', link_to_facet: true
+    config.add_show_field 'published_vern_ssim', label: 'Published'
+    config.add_show_field 'isbn_ssim', label: 'ISBN'
+    config.add_show_field 'issn_ssim', label: 'ISSN'
+    config.add_show_field 'issn_title_ssim', label: 'ISSN Title'
+
+    config.add_show_field 'abstract_tesim', label: 'Abstract'
+    config.add_show_field 'bioghist_tesim', label: 'Historical Note'
+    config.add_show_field 'physical_description_tesim', label: 'Physical Description'
+    config.add_show_field 'accessrestrict_tesim', label: 'Access Terms'
+    config.add_show_field 'userestrict_tesim', label: 'Use Terms'
+    config.add_show_field 'acqinfo_tesim', label: 'Acquisition Information'
+    config.add_show_field 'custodhist_tesim', label: 'Custodial History'
+    config.add_show_field 'series_tesim', label: 'Series'
     config.add_show_field 'notes_tesim', label: 'Notes'
+    config.add_show_field 'contents_tesim', label: 'Contents'
 
     config.add_show_field 'subject_ssim', label: 'Subjects', link_to_facet: true
+    config.add_show_field 'genre_form_ssim', label: 'Genres/Forms', link_to_facet: true
+    config.add_show_field 'persname_ssim', label: 'Names', link_to_facet: true
+    config.add_show_field 'corpname_ssim', label: 'Corporate Names', link_to_facet: true
+    config.add_show_field 'topic_term_ssim', label: 'Topics', link_to_facet: true
+    config.add_show_field 'chronological_term_ssim', label: 'Chronological Terms', link_to_facet: true
+    config.add_show_field 'geographic_term_ssim', label: 'Geographic Terms', link_to_facet: true
+    config.add_show_field 'title_term_ssim', label: 'Titles', link_to_facet: true
     #config.add_show_field solr_name("subject_ssim", :stored_searchable)
 
     # "fielded" search configuration. Used by pulldown among other places.
