@@ -92,3 +92,7 @@
 #document dd.blacklight-title_term_ssim a {
   font-size:initial;
 }
+
+.blacklight-title_tesim {
+  display: none;
+}
