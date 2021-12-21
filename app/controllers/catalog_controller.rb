@@ -100,6 +100,8 @@ class CatalogController < ApplicationController
     config.add_facet_field 'editor_ssim', label: 'Editor', limit: 10
     config.add_facet_field 'translator_ssim', label: 'Translator', limit: 10
     config.add_facet_field 'contributor_ssim', label: 'Contributor', limit: 10
+    config.add_facet_field 'publisher_ssim', label: 'Publisher', limit: 5
+    config.add_facet_field 'call_number_ssim', label: 'Call Number', limit: 5
 
     #config.add_facet_field 'language_ssim', label: 'Language', limit: true
     config.add_facet_field 'lc_1letter_ssim', label: 'Call Number'
@@ -180,6 +182,7 @@ class CatalogController < ApplicationController
     config.add_show_field 'custodhist_tesim', label: 'Custodial History'
     config.add_show_field 'series_tesim', label: 'Series'
     config.add_show_field 'notes_tesim', label: 'Notes'
+    config.add_show_field 'curator_notes_tesim', label: 'Curator Notes'
     config.add_show_field 'contents_tesim', label: 'Contents'
 
     config.add_show_field 'subject_ssim', label: 'Subjects', link_to_facet: true
@@ -251,11 +254,11 @@ class CatalogController < ApplicationController
     # whether the sort is ascending or descending (it must be asc or desc
     # except in the relevancy case). Add the sort: option to configure a
     # custom Blacklight url parameter value separate from the Solr sort fields.
+    config.add_sort_field 'relevance', sort: 'score desc, pub_date_si desc, title_si asc', label: 'relevance'
     config.add_sort_field 'date asc', label: 'date'
     config.add_sort_field 'date desc', label: 'date reversed'
-    config.add_sort_field 'relevance', sort: 'score desc, pub_date_si desc, title_si asc', label: 'relevance'
     #config.add_sort_field 'year-desc', sort: 'date desc, title_si asc', label: 'date'
-    config.add_sort_field 'author', sort: 'author_tesim asc, title_tesim asc', label: 'author'
+    #config.add_sort_field 'author', sort: 'author_tesim asc, title_tesim asc', label: 'author'
     #config.add_sort_field 'title_tesim asc, date desc' label: 'title'
 
     # If there are more than this many search results, no spelling ("did you

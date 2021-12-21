@@ -40,9 +40,55 @@
 	display: table;
 }
 
+#document > div > h1 {
+	font-size: 2rem;
+}
+
 #document dd.blacklight-subject_ssim {
   font-size:0;
 }
 #document dd.blacklight-subject_ssim a {
+  font-size:initial;
+}
+#document dd.blacklight-genre_form_ssim {
+  font-size:0;
+}
+#document dd.blacklight-genre_form_ssim a {
+  font-size:initial;
+}
+#document dd.blacklight-persname_ssim {
+  font-size:0;
+}
+#document dd.blacklight-persname_ssim a {
+  font-size:initial;
+}
+#document dd.blacklight-corpname_ssim {
+  font-size:0;
+}
+#document dd.blacklight-corpname_ssim a {
+  font-size:initial;
+}
+#document dd.blacklight-topic_term_ssim {
+  font-size:0;
+}
+#document dd.blacklight-topic_term_ssim a {
+  font-size:initial;
+}
+#document dd.blacklight-chronological_term_ssim {
+  font-size:0;
+}
+#document dd.blacklight-chronological_term_ssim a {
+  font-size:initial;
+}
+#document dd.blacklight-geographic_term_ssim {
+  font-size:0;
+}
+#document dd.blacklight-geographic_term_ssim a {
+  font-size:initial;
+}
+#document dd.blacklight-title_term_ssim {
+  font-size:0;
+}
+#document dd.blacklight-title_term_ssim a {
   font-size:initial;
 }
