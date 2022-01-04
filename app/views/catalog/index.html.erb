@@ -1,0 +1,22 @@
+<% content_for(:sidebar) do %>
+  <%= render 'search_sidebar' %>
+<% end %>
+
+<% unless has_search_parameters? %>
+  <%# if there are no input/search related params, display the "home" partial -%>
+  <%= render 'home' %>
+  <%= render 'shared/sitelinks_search_box' %>
+<% else %>
+  <% if params.has_key?("search_field") %>
+    <%= render 'search_results' %>
+  <% else %>
+    <% if params["f"]["collecting_area_ssim"][0] == "Mathes Childrens Literature" %>
+      <%= render 'mathes' %>
+    <% elsif params["f"]["collecting_area_ssim"][0] == "Political Pamphlets" %>
+      <%= render 'pamphlets' %>
+    <% else %>
+      <%= render 'search_results' %>
+    <% end %>
+  <% end %>
+<% end %>
+
