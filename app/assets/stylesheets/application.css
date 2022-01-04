@@ -114,9 +114,9 @@
 }
 
 .mathes-card .card-header:hover {
-	background: #9e68c7;
-}
-
-.mathes-card .card-header:hover a {
-	color: #fff;
+	border-top-color: #eaaa00 !important;
+	border-bottom-color: #eaaa00 !important;
+	border-left-color: #eaaa00 !important;
+	border-right-color: #eaaa00 !important;
+	background-color: #f8e1a5 !important;
 }
