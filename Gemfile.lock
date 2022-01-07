@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/UAlbanyArchives/grenander
-  revision: 402a71ef74cc0bf64e079c6807acaf35f697fc64
+  revision: 3b630c3eb07db23e8bf1c3633c3ae786c533879a
   branch: new_nav
   specs:
     grenander (1.3.1)
@@ -156,15 +156,15 @@ GEM
     marcel (1.0.2)
     method_source (1.0.0)
     mini_mime (1.1.2)
-    mini_portile2 (2.6.1)
+    mini_portile2 (2.7.1)
     minitest (5.15.0)
     modernizr-rails (2.7.1)
     msgpack (1.3.3)
     multipart-post (2.1.1)
     mysql2 (0.5.3)
     nio4r (2.5.8)
-    nokogiri (1.12.5)
-      mini_portile2 (~> 2.6.1)
+    nokogiri (1.13.0)
+      mini_portile2 (~> 2.7.0)
       racc (~> 1.4)
     popper_js (1.16.0)
     public_suffix (4.0.6)
@@ -262,7 +262,7 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     sqlite3 (1.4.2)
-    thor (1.1.0)
+    thor (1.2.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
     twitter-typeahead-rails (0.11.1.pre.corejavascript)
