@@ -1,6 +1,6 @@
 en:
   blacklight:
-    application_name: 'Books - M.E. Grenander Special Collections &amp; Archives'
+    application_name: 'Books - M.E. Grenander Special Collections & Archives'
     search:
       form:
         submit: ''

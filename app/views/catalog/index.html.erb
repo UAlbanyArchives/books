@@ -11,12 +11,16 @@
     <%= render 'search_results' %>
   <% else %>
     <% if params.has_key?("f") %>
-      <% if params["f"]["collecting_area_ssim"][0] == "Mathes Childrens Literature" %>
-        <%= render 'mathes' %>
-      <% elsif params["f"]["collecting_area_ssim"][0] == "Political Pamphlets" %>
-        <%= render 'pamphlets' %>
-      <% elsif params["f"]["collecting_area_ssim"][0] == "Rare Books" %>
-        <%= render 'home' %>
+      <% if params["f"].has_key?("collecting_area_ssim") and params["f"].keys.count == 1 %>
+        <% if params["f"]["collecting_area_ssim"][0] == "Mathes Childrens Literature" %>
+          <%= render 'mathes' %>
+        <% elsif params["f"]["collecting_area_ssim"][0] == "Political Pamphlets" %>
+          <%= render 'pamphlets' %>
+        <% elsif params["f"]["collecting_area_ssim"][0] == "Rare Books" %>
+          <%= render 'home' %>
+        <% else %>
+          <%= render 'search_results' %>
+        <% end %>
       <% else %>
         <%= render 'search_results' %>
       <% end %>
