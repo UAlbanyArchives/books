@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/UAlbanyArchives/grenander
-  revision: 78924d5532ed425a9985c30f9920f141f9292b2e
+  revision: a21c549f655fec28c1c5773b0af099571ffebab0
   branch: new_nav
   specs:
     grenander (1.3.1)
@@ -62,7 +62,7 @@ GEM
     archive-zip (0.12.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
-    autoprefixer-rails (10.4.0.0)
+    autoprefixer-rails (10.4.2.0)
       execjs (~> 2)
     bindex (0.8.1)
     blacklight (7.13.2)
@@ -163,7 +163,7 @@ GEM
     multipart-post (2.1.1)
     mysql2 (0.5.3)
     nio4r (2.5.8)
-    nokogiri (1.13.0)
+    nokogiri (1.13.1)
       mini_portile2 (~> 2.7.0)
       racc (~> 1.4)
     popper_js (1.16.0)

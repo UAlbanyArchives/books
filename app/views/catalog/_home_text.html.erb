@@ -1,17 +1,59 @@
 <div class="card">
 <div class="card-body">
-<h2 class="card-title">Rare Books</h2>
+<h2 class="card-title m-3">Rare Books</h2>
+<div class="card-text p-3">
+<p class="card-text">
+	Rare Books include several different collections, each with a different scope, purpose, and curatorial history. One uniting principle is the rarity of a text, whether due to a scarcity of extant copies, or because of the annotations of someone important in the particular discipline. Several of our named collections, such as the Kosover, are housed together because of the insights gained from easily accessing similar materials. Ephemeral materials are housed in rare books because their impermanent nature makes them rare, and their being housed together helps them illuminate a historical period or time in intellectual history. 
+</p>
+
+<p class="card-text">
+At the University at Albany, the creation of the uptown campus and expansion of disciplines and degrees was the impetus for obtaining rare books to support various disciplines taught at the university. 
+</p>
+
+<p class="card-text">
+The majority of rare books have author, title, and subject access. Currently, only the <a href="<%= request.base_url + "/books?f[collection_ssim][]=Kosover" %>">Kosover</a> and <a href="<%= request.base_url + "/books?f[collection_ssim][]=O'Reilly" %>">O'Reilly</a> collections are documented in book records and appear as facets, although we are working to add a facet search to other collections in the future.
+</p>
+
 <ul class="card-text">
-    <li>Pre-1801 European and pre-1820 American printed books</li>
-    <li>19th-century English illustrated books</li>
-    <li>The Elzevier Collection of about 700 volumes from the printing offices of the Elzevier family, which flourished in the Dutch Republic between 1583 and 1702</li>
-    <li>The O'Reilly Collection of more than 500 French plays, chiefly from the 1775-99 period (described in French Theatrical Works, 1650-1803 [Albany, NY: University Libraries, 1990])</li>
-    <li><a href="http://libguides.library.albany.edu/mesoamericancodices">Library Guide to the University Libraries' Mesoamerican codices collection</a></li>
-        <ul><li><a href="http://libguides.library.albany.edu/c.php?g=537330&p=3677842s">Listing of facsimile reproductions of Mesoamerican codices</a></li></ul>
-    <li>The Mordecai Kosover Collection of Judaica materials from 1584-1850 (described in Kosover Collection of Judaica, 1545-1850 [Albany, NY: University Libraries, 1993])</li>
-    <li>Substantively annotated books from the libraries of individuals whose papers are part of the Department's archival manuscript collections, particularly individuals from the German and Jewish Intellectual Émigré Collection.</li>
-    <li>Ephemeral collections include European and American political pamphlets, propaganda, and other ephemeral publications on radical thought, socialism, communism, fascism, and other ideologies mostly from the 20th century; business history collection consisting of pamphlets, trade catalogs, ephemeral publications, and other materials pertaining to United States business history and practices since the nineteenth century, including American railroads, New York State business and industry, accounting, shorthand, expositions, and other subjects.</li>
+	<li>
+		The Pre-1800 Collection is comprised of European imprints prior to 1801 and American imprints prior to 1821. Most of our 16th- and 17th century imprints are in Western European languages and Hebrew.
+	</li>
+	<li>
+		The Elzevier Collection includes approximately 700 volumes printed by the Elzevier family, which flourished in the Dutch Republic between 1583 and 1720.
+	</li>
+	<li>
+		The <a href="<%= request.base_url + "/books?f[collection_ssim][]=O'Reilly" %>">O'Reilly Collection</a> is a 112-volume compilation of over 500 French plays, chiefly performed between 1750 and 1800. Many of these titles are described in <a href="https://search.library.albany.edu/permalink/01SUNY_ALB/1c53jur/alma990007216850204808"><i>French Theatrical Works, 1650-1803</i>. (Albany, NY: University Libraries, 1990)</a>.
+	</li>
+	<li>
+		The Mesoamerican Codices Collection is comprised of facsimile editions of important texts, and is described in the <a href="https://libguides.library.albany.edu/mesoamericancodices">Library Guide to the University Libraries' Mesoamerican codices collection</a>
+	</li>
+	<ul>
+		<li>
+			<a href="https://libguides.library.albany.edu/c.php?g=537330&p=3677842s">Listing of facsimile reproductions of Mesoamerican codices</a>
+		</li>
+	</ul>
+	<li>
+		The <a href="<%= request.base_url + "/books?f[collection_ssim][]=Kosover" %>">Mordecai Kosover Collection</a> contains Hebrew imprints from 1584 through 1850. These materials are described in <a href="https://search.library.albany.edu/permalink/01SUNY_ALB/1c53jur/alma990008671950204808"><i>Kosover Collection of Judaica, 1545-1850</i>. (Albany, NY: University Libraries, 1993)</a>, which is available <a href="<%= request.base_url + "/books/catalog/990008671950204808" %>">onsite in the department</a>.
+	</li>
+	<li>
+		A collection of 19th-century English illustrated books
+	</li>
+	<li>
+		Rare Books also includes texts that are substantively annotated by individuals whose papers are part of the Department's archival manuscript collections, particularly the German and Jewish Intellectual Émigré Collection.
+	</li>
+	<li>
+		Several ephemeral collections include:
+	</li>
+	<ul>
+		<li>
+			European and American political pamphlets and propaganda, as well as and other ephemeral publications on radical thought, socialism, communism, fascism, among other 20th century ideologies;
+		</li>
+		<li>
+			The Business History Collection consists of pamphlets, trade catalogs, ephemeral publications, and other materials pertaining to United States business history and practices since the nineteenth century, including American railroads, New York State business and industry, accounting, shorthand, expositions, and other subjects.
+		</li>
+	</ul>
 </ul>
+</div>
 </div>
 </div>
 
