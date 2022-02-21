@@ -32,3 +32,9 @@
 
 grenander
 grenander/*
+
+#ignore static files build by jekyll
+public/index.html
+public/404.html
+public/422.html
+public/500.html
