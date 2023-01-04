@@ -25,6 +25,9 @@
  *
 */
 
+input#q {
+	background-color: #fff !important;
+}
 
 .access-card {
 	margin-top: 2rem;
