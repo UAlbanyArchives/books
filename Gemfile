@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.5'
+ruby '2.7.7'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.8.1'
+gem 'rails', '~> 6.1.7.3'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
@@ -84,3 +84,4 @@ gem "rename"
 #maintenance updates
 gem "addressable", ">= 2.8.0"
 gem "nokogiri", ">= 1.13.4"
+gem "rack", ">= 2.2.6.4"
