@@ -5,7 +5,7 @@ services:
     container_name: books
     image: books
     ports:
-      - '0.0.0.0:8080:3000'
+      - '0.0.0.0:8082:3000'
     volumes:
       - ./log:/app/log
       - ./db:/app/db
