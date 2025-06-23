@@ -12,6 +12,10 @@ else
   echo "Database found. Skipping migrations."
 fi
 
+rm -f /app/tmp/pids/server.pid
+mkdir -p /app/tmp/pids
+
 # Start the Rails server
 echo "Starting Rails server..."
 bundle exec puma -C config/puma.rb
+

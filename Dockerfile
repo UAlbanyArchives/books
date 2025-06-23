@@ -56,7 +56,7 @@ WORKDIR /app
 RUN bundle install
 
 # Expose port 3000
-ARG DEFAULT_PORT 3000
+ARG DEFAULT_PORT 3002
 EXPOSE ${DEFAULT_PORT}
 
 # Copy the entrypoint script
