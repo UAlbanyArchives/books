@@ -14,7 +14,7 @@ threads threads_count, threads_count
 
 # Puma listens on both Unix and TCP sockets
 # By default, Puma will bind to a TCP port
-bind "tcp://0.0.0.0:3002"
+bind "tcp://0.0.0.0:3000"
 
 # Set a PID file for the server process
 pidfile "tmp/pids/puma.pid"

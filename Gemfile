@@ -42,7 +42,7 @@ gem 'blacklight_range_limit'
 gem "font-awesome-rails"
 
 # shared header, footer, etc.
-gem 'grenander', git: 'https://github.com/UAlbanyArchives/grenander', branch: "main"
+gem 'grenander', git: 'https://github.com/UAlbanyArchives/grenander', branch: "bs4_migration"
 #gem 'grenander', path: 'grenander'
 
 group :development, :test do
