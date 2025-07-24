@@ -1,6 +1,5 @@
 FROM ruby:2.7.7-slim-bullseye AS builder
 # Should look to update to ruby:3.3.4-slim-bookworm
-MAINTAINER Gregory Wiedeman gwiedeman@albany.edu
 
 ENV RAILS_ENV=production
 

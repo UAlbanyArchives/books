@@ -7,36 +7,37 @@ Basic Blacklight app for searching the book collections in the M.E. Grenander De
 
 Run the app:
 ```
-docker-compose -f docker-compose-dev.yml up
+docker compose  up
 ```
 
 Navigate to [http://localhost:3000/books](http://localhost:3000/books)
 
 You should be able to edit code in real time.
 
-When you're done:
-```
-docker-compose down
-```
-
 ### For deployment
 
-Building the `books` image locally:
+Building the `books` image for production:
 ```
-DOCKER_BUILDKIT=1 docker build --secret id=master_key,src=config/master.key -t books .
+make build
 ```
-On Windows
+
+Restarting the service:
+```
+make restart
+```
+
+#### For Windows
+
+These commands don't work on Windows. For that you have to use the full build command:
 ```
 $env:DOCKER_BUILDKIT=1; docker build --secret id=master_key,src=config/master.key -t books .
 ```
 
 Running the image in the background:
 ```
-docker-compose up -d
+docker compose -f docker-compose-prod.yml up -d
 ```
 Navigate to [http://localhost:8082/books](http://localhost:8082/books)
-
-&#8594; In production, this should be set up to run as a service
 
 To stop:
 ```
