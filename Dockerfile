@@ -26,7 +26,8 @@ RUN gem install bundler -v 2.4.22
 # Install gems
 WORKDIR /app
 COPY Gemfile* ./
-RUN bundle install
+RUN bundle install && \
+    bundle exec ruby -rbundler/setup -e "Bundler.load.specs.each(&:full_gem_path)"
 
 # Copy application code
 COPY . /app
@@ -52,7 +53,8 @@ RUN curl -fsSL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
 # Copy application code from the builder stage and install gems
 COPY --from=builder /app /app
 WORKDIR /app
-RUN bundle install
+RUN bundle install && \
+    bundle exec ruby -rbundler/setup -e "Bundler.load.specs.each(&:full_gem_path)"
 
 # Expose port 3000
 ARG DEFAULT_PORT 3002
