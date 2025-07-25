@@ -6,6 +6,12 @@ build:
 	  --secret id=master_key,src=config/master.key \
 	  -t books .
 
+build-nocache:
+	DOCKER_BUILDKIT=1 docker build \
+	  --no-cache \
+	  --secret id=master_key,src=config/master.key \
+	  -t books .
+
 # Restart dev containers (stop and start)
 restart:
 	docker compose down
