@@ -52,6 +52,7 @@ RUN curl -fsSL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
 # Copy application code from the builder stage and install gems
 COPY --from=builder /app /app
 WORKDIR /app
+RUN rm -rf /usr/local/bundle/bundler/gems/grenander-* || true
 RUN bundle install
 
 # Expose port 3000
