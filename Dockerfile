@@ -23,14 +23,13 @@ RUN crontab /etc/cron.d/books-cron
 # specifying the version is needed in older ruby image. Should not be needed in ruby 3+.
 RUN gem install bundler -v 2.4.22
 
-# Install gems
-WORKDIR /app
-COPY Gemfile* ./
-RUN bundle install && \
-    bundle exec ruby -rbundler/setup -e "Bundler.load.specs.each(&:full_gem_path)"
-
 # Copy application code
 COPY . /app
+
+# Install gems
+WORKDIR /app
+RUN bundle install && \
+    bundle exec ruby -rbundler/setup -e "Bundler.load.specs.each(&:full_gem_path)"
 
 # Use build secret for master key
 RUN --mount=type=secret,id=master_key \
