@@ -1,10 +1,8 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.7'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.1.7.3'
+gem "rails", "~> 7.2.1"
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.6.2'
 # Use Puma as the app server
@@ -37,12 +35,15 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 # Customizations
-gem 'blacklight', '>= 7.33'
-gem 'blacklight_range_limit'
-gem "font-awesome-rails"
+gem "blacklight", ">= 8.4.0"
+gem "blacklight_range_limit", ">= 9.0.0"
+gem "bootstrap", "~> 5.3"
+gem "cssbundling-rails"
+gem 'font-awesome-sass', '~> 5.15'
+gem 'rsolr'
 
 # shared header, footer, etc.
-gem 'grenander', git: 'https://github.com/UAlbanyArchives/grenander', branch: "bs4_migration"
+gem 'grenander', git: 'https://github.com/UAlbanyArchives/grenander', branch: 'main'
 #gem 'grenander', path: 'grenander'
 
 group :development, :test do
@@ -53,10 +54,7 @@ end
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
-  gem 'listen', '>= 3.0.5', '< 3.2'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'listen', '~> 3.5', '>= 3.5.1'
 end
 
 group :test do
@@ -73,15 +71,3 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 group :development, :test do
   gem 'solr_wrapper', '>= 0.3'
 end
-
-gem 'rsolr', '>= 1.0', '< 3'
-gem 'bootstrap', '~> 4.0'
-gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
-gem 'jquery-rails'
-
-gem "rename"
-
-#maintenance updates
-gem "addressable", ">= 2.8.0"
-gem "nokogiri", ">= 1.13.4"
-gem "rack", ">= 2.2.6.4"

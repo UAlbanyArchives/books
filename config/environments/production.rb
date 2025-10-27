@@ -24,9 +24,6 @@ Rails.application.configure do
   # Apache or NGINX already handles this.
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
-  # Compress CSS using a preprocessor.
-  # config.assets.css_compressor = :sass
-
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
   config.assets.prefix = '/books'
@@ -76,7 +73,8 @@ Rails.application.configure do
   config.i18n.fallbacks = true
 
   # Send deprecation notices to registered listeners.
-  config.active_support.deprecation = :notify
+  config.active_support.report_deprecations = false
+  config.active_support.disallowed_deprecation_warnings = []
 
   # Log disallowed deprecations.
   config.active_support.disallowed_deprecation = :log
@@ -85,7 +83,7 @@ Rails.application.configure do
   config.active_support.disallowed_deprecation_warnings = []
 
   # Silence Blacklight 8 deprication warnings
-  Deprecation.default_deprecation_behavior = :silence
+  config.active_support.report_deprecations = false
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new

@@ -17,7 +17,7 @@
 // Required by Blacklight
 //= require popper
 // Twitter Typeahead for autocomplete
-//= require twitter/typeahead
+//= require typeahead.js/dist/typeahead.bundle
 //= require bootstrap
 //= require blacklight/blacklight
 
@@ -26,5 +26,6 @@
 
 // For blacklight_range_limit built-in JS, if you don't want it you don't need
 // this:
-//= require 'blacklight_range_limit'
 //= require grenander/search_sources_menu
+
+//import BlacklightRangeLimit from "blacklight-range-limit";
