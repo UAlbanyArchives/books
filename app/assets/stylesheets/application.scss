@@ -1,28 +1,16 @@
-// This is a manifest file that'll be compiled into application.css,
-// which will include all the files listed below.
-//
-// Any CSS and SCSS file within this directory, lib/assets/stylesheets,
-// or any plugin's vendor/assets/stylesheets directory can be referenced
-// here using a relative path.
-//
-// You're free to add application-wide styles to this file and they'll
-// appear at the bottom of the compiled file so the styles you add here
-// take precedence over styles defined in any other CSS/SCSS files in this
-// directory. Styles in this file should be added after the last import.
-// It is generally better to create a new file per style scope.
-//
-// Used by blacklight_range_limit
+// Load Bootstrap and icons first
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons';
 
-// Instead of sprockets directives, use SCSS imports:
+// Font Awesome
 @import "font-awesome";
-@import "grenander/main";
-@import "grenander/navbar";
-@import "grenander/search-source";
-@import "grenander/footer";
-@import "grenander/mathes";
 
-// If you want to still pull in everything from the folder, you can use:
-@import "*";
+// Then your other styles
+@import "grenander/main.css";
+@import "grenander/navbar.css";
+@import "grenander/search-source.css";
+@import "grenander/footer.css";
+@import "grenander/mathes.css";
 
 
 input#q {

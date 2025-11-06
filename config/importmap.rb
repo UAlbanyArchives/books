@@ -1,0 +1,6 @@
+pin "@rails/activestorage", to: "activestorage.js"
+pin "bootstrap", to: "bootstrap.bundle.min.js"
+pin "typeahead.js", to: "typeahead.bundle.js"
+pin "blacklight", to: "blacklight.js"
+pin "grenander/search_sources_menu", to: "grenander/search_sources_menu.js"
+pin "blacklight-range-limit", to: "blacklight-range-limit.js"

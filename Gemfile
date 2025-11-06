@@ -38,13 +38,15 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem "blacklight", ">= 8.4.0"
 gem "blacklight_range_limit", ">= 9.0.0"
 gem "bootstrap", "~> 5.3"
-gem "cssbundling-rails"
+gem "sprockets-rails", "~> 3.4"
 gem 'font-awesome-sass', '~> 5.15'
 gem 'rsolr'
+gem "importmap-rails"
+gem "sassc-rails", "~> 2.1"
 
 # shared header, footer, etc.
-gem 'grenander', git: 'https://github.com/UAlbanyArchives/grenander', branch: 'main'
-#gem 'grenander', path: 'grenander'
+#gem 'grenander', git: 'https://github.com/UAlbanyArchives/grenander', branch: 'main'
+gem 'grenander', path: '/grenander'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

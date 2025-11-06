@@ -6,6 +6,7 @@ services:
       - '3000:3000'
     volumes:
       - '.:/app'
+      - '../grenander:/grenander'
     working_dir: /app
     command: >
       bash -c "apt update &&

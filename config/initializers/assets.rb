@@ -10,9 +10,14 @@ Rails.application.config.assets.paths << Rails.root.join("node_modules/bootstrap
 Rails.application.config.assets.paths << Rails.root.join('node_modules')
 Rails.application.config.assets.paths << Rails.root.join("node_modules/bootstrap-icons/font")
 
+# Disable JS precompilation since JS is handled by importmap
+Rails.application.config.assets.precompile.reject! do |entry|
+  entry.is_a?(Regexp) && entry.to_s.include?('application\\.(css|js)')
+end
+
 # Precompile additional assets.
 Rails.application.config.assets.precompile += %w[
-  grenander/application.js
+  application.scss
   grenander/application.css
 ]
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
