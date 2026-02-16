@@ -10,20 +10,15 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
- 
- *
  * Used by blacklight_range_limit
- *= require  'font-awesome'
- *= require  'blacklight_range_limit'
- *= require  'grenander/main'
- *= require  'grenander/navbar'
- *= require  'grenander/search-source'
- *= require  'grenander/footer'
- *= require  'grenander/mathes'
+ *= require 'blacklight_bundle'
+ *= require 'grenander/blacklight'
+ *= require 'grenander'
+ *= require 'grenander/mathes'
  *
-*/
+ *= require_self
+ */
+
 
 input#q {
 	background-color: #fff !important;
@@ -31,14 +26,16 @@ input#q {
 
 .access-card {
 	margin-top: 2rem;
+	box-shadow: none !important;
+	border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
 }
 
 @media (min-width: 992px) {
 	.access-card {
-		margin-top: 4.5rem;
+		margin-top: 46px;
 	}
 }
-
 
 #document dd a {
 	display: table;
@@ -122,4 +119,16 @@ input#q {
 	border-left-color: #eaaa00 !important;
 	border-right-color: #eaaa00 !important;
 	background-color: #f8e1a5 !important;
+}
+
+.btn-info:hover {
+	color: #fff;
+	background-color: #138496;
+	border-color: #117a8b;
+}
+
+.btn-info:active {
+	color: #fff;
+	background-color: #117a8b;
+	border-color: #10707f;
 }

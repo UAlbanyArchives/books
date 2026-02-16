@@ -1,23 +1,20 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.7'
+ruby '3.3.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.1.7.3'
+gem 'rails', '~> 7.2.0'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.6.2'
+gem 'sqlite3', '~> 1.7'
 # Use Puma as the app server
-gem 'puma', '~> 5.6.4'
+gem 'puma', '~> 6.4'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'sassc-rails', '~> 2.1'
+# Use Terser as compressor for JavaScript assets
+gem 'terser', '~> 1.1'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
-
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 # gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -37,13 +34,17 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 # Customizations
-gem 'blacklight', '>= 7.33'
-gem 'blacklight_range_limit'
-gem "font-awesome-rails"
+gem 'blacklight', '~> 8.0'
+gem 'blacklight_range_limit', '~> 8.0'
+gem 'font-awesome-sass', '~> 5.15'
 
 # shared header, footer, etc.
-gem 'grenander', git: 'https://github.com/UAlbanyArchives/grenander', branch: "bs4_migration"
-#gem 'grenander', path: 'grenander'
+grenander_path = ENV["GRENANDER_PATH"]
+if grenander_path && !grenander_path.empty?
+  gem 'grenander', path: grenander_path
+else
+  gem 'grenander', git: 'https://github.com/UAlbanyArchives/grenander', branch: 'main'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -53,10 +54,11 @@ end
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
-  gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'listen', '~> 3.8'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring', '~> 4.0'
+  # mutex_m is removed from stdlib in Ruby 3.4+, required by spring
+  gem 'mutex_m'
 end
 
 group :test do
@@ -75,7 +77,7 @@ group :development, :test do
 end
 
 gem 'rsolr', '>= 1.0', '< 3'
-gem 'bootstrap', '~> 4.0'
+gem 'bootstrap', '~> 5.3'
 gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
 gem 'jquery-rails'
 
@@ -84,4 +86,4 @@ gem "rename"
 #maintenance updates
 gem "addressable", ">= 2.8.0"
 gem "nokogiri", ">= 1.13.4"
-gem "rack", ">= 2.2.6.4"
+gem "rack", ">= 3.0.0"

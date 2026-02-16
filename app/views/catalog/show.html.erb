@@ -1,26 +1,12 @@
-<div class="container">
+<% if current_search_session %>
+  <div id="appliedParams" class="clearfix constraints-container">
+    <%= render 'start_over' %>
+    <%= link_back_to_catalog class: 'btn btn-outline-secondary' %>
+  </div>
+<% end %>
 
-	<% if current_search_session %>
-	  <div id="appliedParams" class="clearfix constraints-container">
-	    <%= render 'start_over' %>
-	    <%= link_back_to_catalog class: 'btn btn-outline-secondary' %>
-	  </div>
-	<% end %>
-	<div class="row">
-		<div class="col-lg-9">
+<%= render_document_main_content_partial %>
 
-			<%= render_document_main_content_partial %>
-
-			<% content_for(:sidebar) do %>
-			  <%= render_document_sidebar_partial @document %>
-			<% end %>
-
-		</div>
-
-		<div class="col-lg-3">
-			<%= render partial: 'access' %>
-		</div>
-
-	</div>
-
-</div>
+<% content_for(:sidebar) do %>
+  <%= render partial: 'access' %>
+<% end %>

@@ -18,4 +18,3 @@ mkdir -p /app/tmp/pids
 # Start the Rails server
 echo "Starting Rails server..."
 bundle exec puma -C config/puma.rb
-

@@ -1,0 +1,3 @@
+// Import Bootstrap CSS first, then Blacklight SCSS (which now has Bootstrap variables).
+@import "bootstrap";
+@import "blacklight/blacklight";
