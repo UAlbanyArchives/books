@@ -101,10 +101,9 @@ GEM
       rails (>= 6.1, < 9)
       view_component (>= 2.74, < 5)
       zeitwerk
-    blacklight_range_limit (8.5.0)
-      blacklight (>= 7.25.2, < 9)
-      deprecation
-      view_component (>= 2.54, < 4)
+    blacklight_range_limit (9.2.0)
+      blacklight (>= 7.25.2, < 10)
+      view_component (>= 2.54, < 5)
     bootsnap (1.23.0)
       msgpack (~> 1.2)
     bootstrap (5.3.8)
@@ -131,8 +130,6 @@ GEM
     d3-rails (7.8.5)
       railties (>= 3.1)
     date (3.5.1)
-    deprecation (1.1.0)
-      activesupport
     drb (2.2.3)
     erb (6.0.1)
     erubi (1.13.1)
@@ -198,7 +195,6 @@ GEM
       net-smtp
     marcel (1.1.0)
     matrix (0.4.3)
-    method_source (1.1.0)
     mini_mime (1.1.5)
     minitar (1.1.0)
     minitest (6.0.1)
@@ -217,7 +213,7 @@ GEM
     net-smtp (0.5.1)
       net-protocol
     nio4r (2.7.5)
-    nokogiri (1.19.0-x86_64-linux-gnu)
+    nokogiri (1.19.1-x86_64-linux-gnu)
       racc (~> 1.4)
     ostruct (0.6.3)
     popper_js (2.11.8)
@@ -340,10 +336,10 @@ GEM
       concurrent-ruby (~> 1.0)
     uri (1.1.1)
     useragent (0.16.11)
-    view_component (3.24.0)
-      activesupport (>= 5.2.0, < 8.2)
+    view_component (4.4.0)
+      actionview (>= 7.1.0)
+      activesupport (>= 7.1.0)
       concurrent-ruby (~> 1)
-      method_source (~> 1.0)
     web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -364,7 +360,7 @@ PLATFORMS
 DEPENDENCIES
   addressable (>= 2.8.0)
   blacklight (~> 8.0)
-  blacklight_range_limit (~> 8.0)
+  blacklight_range_limit (~> 9.0)
   bootsnap (>= 1.1.0)
   bootstrap (~> 5.3)
   byebug

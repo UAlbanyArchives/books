@@ -35,7 +35,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # Customizations
 gem 'blacklight', '~> 8.0'
-gem 'blacklight_range_limit', '~> 8.0'
+gem 'blacklight_range_limit', '~> 9.0'
 gem 'font-awesome-sass', '~> 5.15'
 
 # shared header, footer, etc.
