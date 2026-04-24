@@ -19,6 +19,7 @@ COPY . /app
 
 # Install gems
 WORKDIR /app
+RUN rm -f Gemfile.lock
 RUN bundle install && \
     bundle exec ruby -rbundler/setup -e "Bundler.load.specs.each(&:full_gem_path)"
 
@@ -38,6 +39,7 @@ RUN apt-get update -qq && apt-get install -y build-essential apt-utils git cron 
 # Copy application code from the builder stage and install gems
 COPY --from=builder /app /app
 WORKDIR /app
+RUN rm -f Gemfile.lock
 RUN bundle install && \
     bundle exec ruby -rbundler/setup -e "Bundler.load.specs.each(&:full_gem_path)"
 
