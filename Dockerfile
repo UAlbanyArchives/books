@@ -19,9 +19,7 @@ COPY . /app
 
 # Install gems
 WORKDIR /app
-RUN rm -f Gemfile.lock
-RUN bundle install && \
-    bundle exec ruby -rbundler/setup -e "Bundler.load.specs.each(&:full_gem_path)"
+RUN bundle install
 
 # Use build secret for master key
 RUN --mount=type=secret,id=master_key \
@@ -48,9 +46,7 @@ RUN apt-get update -qq && \
 # Copy application code from the builder stage and install gems
 COPY --from=builder /app /app
 WORKDIR /app
-RUN rm -f Gemfile.lock
-RUN bundle install && \
-    bundle exec ruby -rbundler/setup -e "Bundler.load.specs.each(&:full_gem_path)"
+RUN bundle install
 
 # Expose port 3000
 ARG DEFAULT_PORT 3002
