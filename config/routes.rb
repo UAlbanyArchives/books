@@ -11,10 +11,11 @@ scope 'books' do
   root to: "catalog#index"
   concern :searchable, Blacklight::Routes::Searchable.new
 
-  resource :catalog, only: [:index], as: 'catalog', path: '/catalog', controller: 'catalog' do
-    concerns :searchable
-    concerns :range_searchable
-
+  resource :catalog, only: [], as: 'catalog', path: '/catalog', controller: 'catalog' do
+    collection do
+      concerns :searchable
+      concerns :range_searchable
+    end
   end
   concern :exportable, Blacklight::Routes::Exportable.new
 

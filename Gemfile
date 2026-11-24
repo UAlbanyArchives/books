@@ -1,12 +1,14 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.3.4'
+ruby '3.4.13'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 7.2.0'
+#gem 'rails', '~> 7.2.0'
+gem 'rails', '~> 8.1.3'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.7'
+#gem 'sqlite3', '~> 1.7'
+gem 'sqlite3', '>= 2.1'
 # Use Puma as the app server
 gem 'puma', '~> 6.4'
 # Use SCSS for stylesheets
@@ -34,7 +36,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 # Customizations
-gem 'blacklight', '~> 8.0'
+#gem 'blacklight', '~> 8.0'
+gem 'blacklight', '~> 9.2.1'
 gem 'blacklight_range_limit', '~> 9.0'
 gem 'font-awesome-sass', '~> 5.15'
 

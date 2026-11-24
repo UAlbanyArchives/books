@@ -1,6 +1,6 @@
 services:
   app_name:
-    image: ruby:3.3.4-slim-bookworm
+    image: ruby:3.4-slim-bookworm
     container_name: books-dev
     ports:
       - '3000:3000'
@@ -10,7 +10,7 @@ services:
     working_dir: /app
     command: >
       bash -c "apt update &&
-              apt install -y build-essential apt-utils git nodejs &&
+              apt install -y build-essential apt-utils git nodejs libyaml-dev pkg-config &&
               cd /app &&
               bundle install &&
               bundle exec rails db:migrate &&

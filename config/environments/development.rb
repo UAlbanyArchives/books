@@ -77,5 +77,5 @@ Rails.application.configure do
   #
   #
   #
-  config.hosts << "lib-espy-ws-d101.its.albany.edu"
+  config.hosts << "lib-arcdev-d101.lib.albany.edu"
 end
